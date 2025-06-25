@@ -21,6 +21,7 @@ import type * as index from "../index.js";
 import type * as notifications from "../notifications.js";
 import type * as posts from "../posts.js";
 import type * as router from "../router.js";
+import type * as seedData from "../seedData.js";
 import type * as users from "../users.js";
 
 /**
@@ -40,6 +41,7 @@ declare const fullApi: ApiFromModules<{
   notifications: typeof notifications;
   posts: typeof posts;
   router: typeof router;
+  seedData: typeof seedData;
   users: typeof users;
 }>;
 export declare const api: FilterApi<

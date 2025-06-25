@@ -4,6 +4,9 @@ import { getAuthUserId } from "@convex-dev/auth/server";
 // Export notification functions
 export * from "./notifications";
 
+// Export seed data functions
+export * from "./seedData";
+
 export const generateUploadUrl = mutation({
   args: {},
   handler: async (ctx) => {

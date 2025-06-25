@@ -7,15 +7,14 @@
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:frontend": "vite --open",
     "dev:backend": "convex dev",
-
     "build": "vite build",
-
     "lint": "tsc -p convex -noEmit --pretty false && tsc -p . -noEmit --pretty false",
-
     "deploy:convex": "npx convex deploy --prod"
   },
   "dependencies": {
     "@convex-dev/auth": "^0.0.80",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "convex": "^1.24.2",
     "date-fns": "^4.1.0",

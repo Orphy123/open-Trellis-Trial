@@ -12,10 +12,11 @@ import { PostDetail } from "./components/PostDetail";
 import { SearchBar } from "./components/SearchBar";
 import { UserProfile } from "./components/UserProfile";
 import { NotificationPanel } from "./components/NotificationPanel";
+import { SeedDataPanel } from "./components/SeedDataPanel";
 import { Id } from "../convex/_generated/dataModel";
-import { Menu, X, Plus, Users, Home, TrendingUp, User, Bell, MessageSquare } from "lucide-react";
+import { Menu, X, Plus, Users, Home, TrendingUp, User, Bell, MessageSquare, Database } from "lucide-react";
 
-type View = "home" | "community" | "post" | "create-post" | "create-community" | "profile";
+type View = "home" | "community" | "post" | "create-post" | "create-community" | "profile" | "seed-data";
 
 export default function App() {
   const [currentView, setCurrentView] = useState<View>("home");
@@ -49,6 +50,11 @@ export default function App() {
 
   const handleViewProfile = () => {
     setCurrentView("profile");
+    setSidebarOpen(false);
+  };
+
+  const handleViewSeedData = () => {
+    setCurrentView("seed-data");
     setSidebarOpen(false);
   };
 
@@ -261,6 +267,17 @@ export default function App() {
                         <User className="w-4 h-4" />
                         Profile
                       </button>
+                      <button
+                        onClick={handleViewSeedData}
+                        className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-3 ${
+                          currentView === "seed-data" 
+                            ? "bg-green-50 text-green-700 border-l-4 border-green-500" 
+                            : "text-gray-600 hover:bg-gray-50 hover:text-green-700"
+                        }`}
+                      >
+                        <Database className="w-4 h-4" />
+                        Seed Data
+                      </button>
                     </nav>
                   </div>
 
@@ -371,6 +388,12 @@ export default function App() {
               {currentView === "profile" && (
                 <div className="animate-scale-in">
                   <UserProfile onBack={handleBackToHome} />
+                </div>
+              )}
+
+              {currentView === "seed-data" && (
+                <div className="animate-scale-in">
+                  <SeedDataPanel onBack={handleBackToHome} />
                 </div>
               )}
             </div>
