@@ -12,13 +12,7 @@
 
     "lint": "tsc -p convex -noEmit --pretty false && tsc -p . -noEmit --pretty false",
 
-    "deploy:convex": "npx convex deploy --prod",
-
-    "auto-sync": "./scripts/auto-sync.sh",
-    "git:commit": "git add . && git commit -m \"Auto-commit: $(date '+%Y-%m-%d %H:%M:%S')\"",
-    "git:push": "git push origin main",
-    "git:sync": "npm run git:commit && npm run git:push",
-    "watch-and-sync": "npm run dev & npm run auto-sync"
+    "deploy:convex": "npx convex deploy --prod"
   },
   "dependencies": {
     "@convex-dev/auth": "^0.0.80",
